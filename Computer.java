@@ -15,7 +15,7 @@ public class Computer {
 	}
 	
 	
-	static void powerSwitch(int state){  //state - состояние выключателя
+	static void powerSwitch(int state){  //state - РЎРѕСЃС‚РѕСЏРЅРёРµ РєРѕРјРїСЊСЋС‚РµСЂР°
 			if(state == 1){
 				System.out.println("Switch turn on");
 			}

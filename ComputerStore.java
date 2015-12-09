@@ -1,45 +1,43 @@
 package Store;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ListIterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class ComputerStore {
 	
 	public static void main(String[] args){ 
-		ComputerInStore store = new ComputerInStore();//Ïóñêàé â ıòîì ìàãàçèíå áóäåò ïîêà  òğè ğàçíûõ êîìïüşòåğà
-		store.computerInStore();
-		
-		ArrayList<Computer> catalogÑomputersList = new ArrayList<Computer>();//Ñîçäàë òğè êîìïüşòåğà ñ ğàçíîé êîíôèãóğàöèåé è ïîìåñòèë èõ â êîëëåêöèş ÑatalogÑomputersList
-		catalogÑomputersList.add(ComputerInStore.pc1);
-		catalogÑomputersList.add(ComputerInStore.pc2);
-		catalogÑomputersList.add(ComputerInStore.pc3);
+				
+		//ArrayList<Computer> catalogComputersList = new ArrayList<Computer>();
+		Map<Integer, Computer> Ğ¡atalogĞ¡omputersMap = new HashMap<Integer, Computer>();
+		Ğ¡atalogĞ¡omputersMap.put(0,new Computer(400, 512, "Asus", "Asus"));
+		Ğ¡atalogĞ¡omputersMap.put(1,new Computer(300, 1024, "MSI", "MSI"));
+		Ğ¡atalogĞ¡omputersMap.put(2,new Computer(500, 2048, "Gigabyte", "Palit"));
 		
 		ComputerStore test = new ComputerStore();
-		System.out.println("------------------------------------èñïîëüçóÿ ÷òåíèå ïî èíäåêñó (ñ èñïîëüçîâàíèåì öèêëà for)------------------------------------");
-		test.printFor(catalogÑomputersList); 
-		System.out.println("------------------------------------èñïîëüçóÿ èòåğàòîğ (ListIterator) (ñ èñïîëüçîâàíèåì öûêëà while)------------------------------------");
-		test.printLiterator(catalogÑomputersList);
-		System.out.println("------------------------------------èñïîëüçóÿ öèêë for each------------------------------------");
-		test.printForEach(catalogÑomputersList);
+		System.out.println("------------------------------------(Ñ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸ĞµĞ¼ Ñ†Ğ¸ĞºĞ»Ğ° for)------------------------------------");
+		test.printFor(Ğ¡atalogĞ¡omputersMap);
+		System.out.println("------------------------------------(Ñ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸ĞµĞ¼ Ñ†Ğ¸ĞºĞ»Ğ° for - Ğ²Ğ°Ñ€Ğ¸Ğ°Ğ½Ñ‚)------------------------------------");
+		test.printFor2(Ğ¡atalogĞ¡omputersMap);
+		System.out.println("------------------------------------(Ñ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸ĞµĞ¼ Ñ†Ğ¸ĞºĞ»Ğ° forEach)------------------------------------");
+		test.printForEach(Ğ¡atalogĞ¡omputersMap);
 	}
 	
-	public void printFor(ArrayList<Computer> comp){
+	public void printFor(Map<Integer, Computer> comp){
 		for(int i=0; i<comp.size(); i++){
 			System.out.println(comp.get(i));
 		}
 	}
-	
-	public void printLiterator(ArrayList<Computer> comp){
-		ListIterator<Computer> litr = comp.listIterator();
-		while (litr.hasNext()){
-	       System.out.println(litr.next());
-	    }
+	public void printFor2(Map<Integer, Computer> comp){
+		for(Entry<Integer, Computer> entry: comp.entrySet()) {
+			System.out.println(entry.getKey()+" " + entry.getValue());
+		 }
 	}
 	
-	public void printForEach(ArrayList<Computer> comp){
-		for(Computer i: comp){
-			System.out.println(i);
-			}
-		}
+	public void printForEach(Map<Integer, Computer> comp){
+		comp.forEach((Integer, Computer)->System.out.println("ĞšĞ»ÑÑ‡ : " + Integer + " Ğ—Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ : " + Computer));
+	}
 	
 }
