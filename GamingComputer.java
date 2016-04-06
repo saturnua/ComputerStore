@@ -1,40 +1,32 @@
 package Store;
 
 public class GamingComputer extends ComputerBuilder{
-    private int powerSuply;
-    private int ram;
 
-    private String mainboard;
-    private String videocard;
+    private Computer computer;
 
-    @Override
-    public ComputerBuilder setPowerSuply(int powerSuply) {
-        this.powerSuply = powerSuply;
-        return this;
+    public GamingComputer(){
+    this.computer = new Computer();
     }
 
     @Override
-    public ComputerBuilder setRam(int ram) {
-        this.ram = ram;
-        return this;
+    public void setRam() {
+        this.computer.setRam(1024);
     }
-
     @Override
-    public ComputerBuilder setMainboard(String mainboard) {
-        this.mainboard = mainboard;
-        return this;
+    public void setPowerSuply(){
+        this.computer.setPowerSuply(400);
     }
-
     @Override
-    public ComputerBuilder setVideocard(String videocard) {
-        this.videocard = videocard;
-        return this;
+    public void setMainboard(){
+        this.computer.setMainboard("MSI_Gaming");
     }
-
     @Override
-    public Computer build() {
-        return new Computer(powerSuply, ram, mainboard, videocard);
+    public void setVideocard(){
+        this.computer.setVideocard("MSI_Gaming_video");
     }
-
+    @Override
+    public Computer getMyComputer(){
+        return this.computer;
+    }
 
 }

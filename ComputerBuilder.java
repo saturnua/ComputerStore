@@ -2,13 +2,21 @@ package Store;
 
 public  abstract class ComputerBuilder {
 
-    public abstract ComputerBuilder setPowerSuply(int powerSuply);
+   protected Computer computer;
 
-    public abstract ComputerBuilder setRam(int ram);
+   public void createNewComputer()
+   {
+     computer = new Computer();
+   }
 
-    public abstract ComputerBuilder setMainboard(String mainboard);
+   public Computer getMyComputer(){
+        return computer;
+   }
 
-    public abstract ComputerBuilder setVideocard(String videocard);
+   public abstract void setPowerSuply();
+   public abstract void setRam();
+   public abstract void setMainboard();
+   public abstract void setVideocard();
 
-    public abstract Computer build();
+
 }
