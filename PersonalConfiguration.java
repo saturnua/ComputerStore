@@ -3,11 +3,8 @@ package Store;
 import java.util.Scanner;
 
 public class PersonalConfiguration extends ComputerBuilder{
-
         Scanner in = new Scanner(System.in);
-
         private Computer computer;
-
         public PersonalConfiguration(){
             this.computer = new Computer();
         }
