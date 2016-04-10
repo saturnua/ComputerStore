@@ -32,10 +32,10 @@ public final class GamingComputer extends ComputerBuilder{
             setRam(1024);
         }
         if(getMainboard()== null){
-            setMainboard("DefaultMainboard");
+            setMainboard(" DefaultMainboard");
         }
         if (getVideocard()==null){
-            setVideocard("DefaultVideocard");
+            setVideocard(" DefaultVideocard");
         }
         return new Computer(this);
 
@@ -46,7 +46,7 @@ public final class GamingComputer extends ComputerBuilder{
     }
     @Override
     public void setPowerSupply(int powerSupply) {
-        this.powerSupply = 600;
+        this.powerSupply = powerSupply;
     }
     @Override
     public int getRam() {
@@ -54,7 +54,7 @@ public final class GamingComputer extends ComputerBuilder{
     }
     @Override
     public void setRam(int ram) {
-        this.ram = 8064;
+        this.ram = ram;
     }
     @Override
     public String getMainboard() {
@@ -62,7 +62,7 @@ public final class GamingComputer extends ComputerBuilder{
     }
     @Override
     public void setMainboard(String mainboard) {
-        this.mainboard = "GamingCompMotherboard";
+        this.mainboard = mainboard;
     }
     @Override
     public String getVideocard() {
@@ -70,7 +70,7 @@ public final class GamingComputer extends ComputerBuilder{
     }
     @Override
     public void setVideocard(String videocard) {
-        this.videocard = "GamingVideocard";
+        this.videocard = videocard;
     }
 
 

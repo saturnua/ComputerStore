@@ -33,29 +33,32 @@ public final class PersonalConfiguration extends ComputerBuilder{
         public Computer build(){
             //check exceptions or set standard fields
                 if (getPowerSupply() == 0){
-                    setPowerSupply(600);
+                    System.out.println("Please input PowerSuply - ");
+                    setPowerSupply(in.nextInt());
                 }
                 if(getRam()== 0){
-                    setRam(1024);
-                }
-                if(getMainboard()== null){
-                    setMainboard("DefaultMainboard");
+                    System.out.println("Please input RAM - ");
+                    setRam(in.nextInt());
                 }
                 if (getVideocard()==null){
-                    setVideocard("DefaultVideocard");
+                    System.out.println("Please input Videocard - ");
+                    setVideocard(in.nextLine());
                 }
+                if(getMainboard()== null){
+                    System.out.println("Please input Mainboard - ");
+                    setMainboard(in.nextLine());
+                }
+
             return new Computer(this);
 
         }
         @Override
-        public int getPowerSupply() {
+        public int getPowerSupply(){
             return powerSupply;
         }
         @Override
-        public void setPowerSupply(int powerSupply){
-            System.out.println("Please input PowerSuply - ");
-            int inputPowerSuply = in.nextInt();
-            this.powerSupply(inputPowerSuply);
+        public void setPowerSupply(int powerSupply) {
+            this.powerSupply = powerSupply;
         }
         @Override
         public int getRam() {
@@ -63,9 +66,7 @@ public final class PersonalConfiguration extends ComputerBuilder{
         }
         @Override
         public void setRam(int ram) {
-            System.out.println("Please input RAM - ");
-            int inputRam = in.nextInt();
-            this.ram(inputRam);
+            this.ram = ram;
         }
         @Override
         public String getMainboard() {
@@ -73,9 +74,7 @@ public final class PersonalConfiguration extends ComputerBuilder{
         }
         @Override
         public void setMainboard(String mainboard){
-            System.out.println("Please input Mainboard - ");
-            String inputMainoboard = in.nextLine();
-            this.mainboard(inputMainoboard);
+            this.mainboard = mainboard;
         }
         @Override
         public String getVideocard() {
@@ -83,9 +82,7 @@ public final class PersonalConfiguration extends ComputerBuilder{
         }
         @Override
         public void setVideocard(String videocard){
-            System.out.println("Please input Videocard - ");
-            String inputVideocard = in.nextLine();
-            this.videocard(inputVideocard);
+          this.videocard = videocard;
         }
 
 
