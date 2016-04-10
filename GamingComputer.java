@@ -1,32 +1,77 @@
 package Store;
 
-public class GamingComputer extends ComputerBuilder{
-
-    private Computer computer;
-
-    public GamingComputer(){
-    this.computer = new Computer();
-    }
+public final class GamingComputer extends ComputerBuilder{
 
     @Override
-    public void setRam() {
-        this.computer.setRam(1024);
+    public ComputerBuilder powerSupply(int power){
+        setPowerSupply(power);
+        return this;
     }
     @Override
-    public void setPowerSuply(){
-        this.computer.setPowerSuply(400);
+    public ComputerBuilder ram(int myRam){
+        setRam(myRam);
+        return this;
     }
     @Override
-    public void setMainboard(){
-        this.computer.setMainboard("MSI_Gaming");
+    public ComputerBuilder mainboard(String myMainboard){
+        setMainboard(myMainboard);
+        return this;
     }
     @Override
-    public void setVideocard(){
-        this.computer.setVideocard("MSI_Gaming_video");
+    public ComputerBuilder videocard(String myVideocard){
+        setVideocard(myVideocard);
+        return this;
     }
     @Override
-    public Computer getMyComputer(){
-        return this.computer;
+    public Computer build(){
+        //check exceptions or set standard fields
+        if (getPowerSupply() == 0){
+            setPowerSupply(400);
+        }
+        if(getRam()== 0){
+            setRam(1024);
+        }
+        if(getMainboard()== null){
+            setMainboard("DefaultMainboard");
+        }
+        if (getVideocard()==null){
+            setVideocard("DefaultVideocard");
+        }
+        return new Computer(this);
+
     }
+    @Override
+    public int getPowerSupply() {
+        return powerSupply;
+    }
+    @Override
+    public void setPowerSupply(int powerSupply) {
+        this.powerSupply = 600;
+    }
+    @Override
+    public int getRam() {
+        return ram;
+    }
+    @Override
+    public void setRam(int ram) {
+        this.ram = 8064;
+    }
+    @Override
+    public String getMainboard() {
+        return mainboard;
+    }
+    @Override
+    public void setMainboard(String mainboard) {
+        this.mainboard = "GamingCompMotherboard";
+    }
+    @Override
+    public String getVideocard() {
+        return videocard;
+    }
+    @Override
+    public void setVideocard(String videocard) {
+        this.videocard = "GamingVideocard";
+    }
+
 
 }
